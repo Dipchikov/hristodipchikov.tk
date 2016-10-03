@@ -1,32 +1,27 @@
-<!-- For each post on this page -->
 <?php foreach ($posts as $Post): ?>
 
 <article class="post">
 
-	<!-- Show plugins, Hook: Post Begin -->
+	<!-- Plugins Post Begin -->
 	<?php Theme::plugins('postBegin') ?>
 
 	<!-- Post's header -->
 	<header>
-		<!-- Post's title and description -->
 		<div class="title">
-			<h2><a href="<?php echo $Post->permalink() ?>"><?php echo $Post->title() ?></a></h2>
+			<h3><a href="<?php echo $Post->permalink() ?>"><?php echo $Post->title() ?></a></h3>
 			<p><?php echo $Post->description() ?></p>
 		</div>
-
-		<!-- Post's date, author name and author avatar -->
 		<div class="meta">
-			<?php
-				// Post's username
-				$User = $Post->user();
+	                <?php
+	                	// Get the user who created the post.
+	                	$User = $Post->user();
 
+	                	// Default author is the username.
+	                	$author = $User->username();
+
+	                	// If the user complete the first name or last name this will be the author.
 				if( Text::isNotEmpty($User->firstName()) || Text::isNotEmpty($User->lastName()) ) {
-					// Author = First name and Last name
 					$author = $User->firstName().' '.$User->lastName();
-				}
-				else {
-					// Author = username
-					$author = $User->username();
 				}
 			?>
 			<time class="published" datetime="2015-11-01"><?php echo $Post->date() ?></time>
@@ -43,14 +38,14 @@
 
 	<!-- Post's content, the first part if has pagebrake -->
 	<?php echo $Post->content(false) ?>
-
 	<!-- Post's footer -->
 	<footer>
 
 		<!-- Read more button -->
 	        <?php if($Post->readMore()) { ?>
 		<ul class="actions">
-			<li><a href="<?php echo $Post->permalink() ?>" class="button big"><?php $Language->p('Read more') ?></a></li>
+					<li><a href="<?php echo $Post->permalink() ?>" class="button big"><?php $Language->p('Read more') ?></a></li>
+			
 		</ul>
 		<?php } ?>
 
@@ -66,7 +61,7 @@
 		</ul>
 	</footer>
 
-	<!-- Show plugins, Hook: Post End -->
+	<!-- Plugins Post End -->
 	<?php Theme::plugins('postEnd') ?>
 
 </article>
@@ -75,13 +70,19 @@
 
 <!-- Pagination -->
 <ul class="actions pagination">
+<div class="col_prev">
 <?php
 	if( Paginator::get('showNewer') ) {
-		echo '<li><a href="'.Paginator::urlPrevPage().'" class="button big previous">Previous Page</a></li>';
+		echo '<li><a href="'.Paginator::urlPrevPage().'" class="button big previous">'.$Language->get('Prev page').'</a></li>';
+	}
+	?>
+</div>
+<div class="col_next">
+<?php
+	if( Paginator::get('showOlder') ) {
+		echo '<li><a href="'.Paginator::urlNextPage().'" class="button big next">'.$Language->get('Next page').'</a></li>';
 	}
 
-	if( Paginator::get('showOlder') ) {
-		echo '<li><a href="'.Paginator::urlNextPage().'" class="button big next">Next Page</a></li>';
-	}
 ?>
-</ul>
+</div>
+</ul><br><br><br><br>

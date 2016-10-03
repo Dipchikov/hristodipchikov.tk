@@ -6,7 +6,7 @@
 	<!-- Post's header -->
 	<header>
 		<div class="title">
-			<h2><a href="<?php echo $Page->permalink() ?>"><?php echo $Page->title() ?></a></h2>
+			<h8><href="<?php echo $Page->permalink() ?>"><?php echo $Page->title() ?></h8>
 			<p><?php echo $Page->description() ?></p>
 		</div>
 	</header>

@@ -1,13 +1,5 @@
 <!DOCTYPE HTML>
-<!--
-Future Imperfect by HTML5 UP
-html5up.net | @n33co
-Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 
-Bludit CMS
-bludit.com | @bludit
-MIT license
--->
 <html>
 <head>
 <!-- Include HTML meta tags -->
@@ -22,14 +14,14 @@ MIT license
 		<header id="header">
 			<h1><a href="<?php echo $Site->url() ?>"><?php echo $Site->title() ?></a></h1>
 			<nav class="links">
-				<ul>
+				<ul><h1>
 				<?php
 					$parents = $pagesParents[NO_PARENT_CHAR];
 					foreach($parents as $Parent) {
 						echo '<li><a href="'.$Parent->permalink().'">'.$Parent->title().'</a></li>';
 					}
 				?>
-				</ul>
+				</h1></ul>
 			</nav>
 			<nav class="main">
 				<ul>
@@ -49,7 +41,7 @@ MIT license
 					foreach($parents as $Parent) {
 						echo '<li>';
 						echo '<a href="'.$Parent->permalink().'">
-							<h3>'.$Parent->title().'</h3>
+							<h4>'.$Parent->title().'</h4>
 							<p>'.$Parent->description().'</p>
 						</a>';
 						echo '</li>';
@@ -58,12 +50,12 @@ MIT license
 				</ul>
 			</section>
 
-			<!-- Actions -->
+			<!-- Actions 
 			<section>
 				<ul class="actions vertical">
-					<li><a href="<?php echo $Site->url().'admin/' ?>" class="button big fit"><?php $L->p('Login') ?></a></li>
+					<li><a href="<?php echo $Site->url().'admin/' ?>" class="button midle fit"><?php $L->p('Login') ?></a></li>
 				</ul>
-			</section>
+			</section>-->
 
 		</section>
 
@@ -103,6 +95,33 @@ MIT license
 
 	<!-- Plugins Site Body End -->
 	<?php Theme::plugins('siteBodyEnd') ?>
-
+<script>
+ var isNS = (navigator.appName == "Netscape") ? 1 : 0;
+  if(navigator.appName == "Netscape") document.captureEvents(Event.MOUSEDOWN||Event.MOUSEUP);
+  function mischandler(){
+   return false;
+ }
+  function mousehandler(e){
+     var myevent = (isNS) ? e : event;
+     var eventbutton = (isNS) ? myevent.which : myevent.button;
+    if((eventbutton==2)||(eventbutton==3)) return false;
+ }
+ document.oncontextmenu = mischandler;
+ document.onmousedown = mousehandler;
+ document.onmouseup = mousehandler;
+  </script>
+  <script type="text/JavaScript">
+//courtesy of BoogieJack.com
+function killCopy(e){
+return false
+}
+function reEnable(){
+return true
+}
+document.onselectstart=new Function ("return false")
+if (window.sidebar){
+document.onmousedown=killCopy
+document.onclick=reEnable
+}
 </body>
 </html>

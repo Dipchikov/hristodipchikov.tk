@@ -1,9 +1,9 @@
 <!-- Intro -->
 <section id="intro">
-	<a href="<?php echo $Site->url() ?>" class="logo"><img src="<?php echo HTML_PATH_THEME ?>img/logo.jpg" alt=""></a>
+	<!--<a href="<?php echo $Site->url() ?>" class="logo"><img src="<?php echo HTML_PATH_THEME ?>images/logo.jpg" alt=""></a>-->
 	<header>
 		<h2><?php echo $Site->title() ?></h2>
-		<p><?php echo $Site->description() ?></p>
+		<!--<p><?php echo $Site->description() ?></p>-->
 	</header>
 </section>
 
@@ -20,7 +20,10 @@
 		if($Site->facebook()) {
 			echo '<li><a href="'.$Site->facebook().'" class="fa-facebook"><span class="label">Facebook</span></a></li>';
 		}
-
+			
+			if($Site->googlePlus()) {
+			echo '<li><a href="'.$Site->googlePlus().'" class=" fa-google-plus"><span class="label">Google+</span></a></li>';
+		}
 		if($Site->instagram()) {
 			echo '<li><a href="'.$Site->instagram().'" class="fa-instagram"><span class="label">Instagram</span></a></li>';
 		}
@@ -38,5 +41,5 @@
 		}
 	?>
 	</ul>
-	<p class="copyright"><?php echo $Site->footer() ?> | Design: <a href="http://html5up.net">HTML5 UP</a></p>
+	<p class="copyright"><?php echo $Site->footer() ?> <a href="<?php echo $Site->url().'admin/' ?>" class="">&nbsp;|&nbsp;</a>Design: <a href="http://hristodipchikov.tk">Hristo Dipchikov</a></p>
 </section>

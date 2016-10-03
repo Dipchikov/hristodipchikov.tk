@@ -6,7 +6,7 @@
 	<!-- Post's header -->
 	<header>
 		<div class="title">
-			<h2><a href="<?php echo $Post->permalink() ?>"><?php echo $Post->title() ?></a></h2>
+			<h3><a href="<?php echo $Post->permalink() ?>"><?php echo $Post->title() ?></a></h3>
 			<p><?php echo $Post->description() ?></p>
 		</div>
 		<div class="meta">
@@ -41,15 +41,20 @@
 	<footer>
 
 		<!-- Post's tags -->
+		
+		<ul class="actions">
+		<h5><?php $Language->p('Tags') ?>:</h5>
+		</ul>
 		<ul class="stats">
-		<?php
-			$tags = $Post->tags(true);
+				<?php
+				$tags = $Post->tags(true);
 
 			foreach($tags as $tagKey=>$tagName) {
 				echo '<li><a href="'.HTML_PATH_ROOT.$Url->filters('tag').'/'.$tagKey.'">'.$tagName.'</a></li>';
 			}
 		?>
 		</ul>
+		
 	</footer>
 
 	<!-- Plugins Post End -->
