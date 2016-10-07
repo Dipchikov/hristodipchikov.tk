@@ -14,7 +14,7 @@
 	<!-- Cover Image -->
 	<?php
 		if($Page->coverImage()) {
-			echo '<a href="'.$Page->permalink().'" class="image featured"><img src="'.$Page->coverImage().'" alt="Cover Image"></a>';
+			echo '<href="'.$Page->permalink().'" class=""><img src="'.$Page->coverImage().'" alt="Cover Image">';
 		}
 	?>
 
