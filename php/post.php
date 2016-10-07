@@ -30,7 +30,7 @@
 	<!-- Cover Image -->
 	<?php
 		if($Post->coverImage()) {
-			echo '<a href="'.$Post->permalink().'" class="image featured"><img src="'.$Post->coverImage().'" alt="Cover Image"></a>';
+			echo '<href="'.$Post->permalink().'" class=""><img src="'.$Post->coverImage().'" alt="Cover Image">';
 		}
 	?>
 
