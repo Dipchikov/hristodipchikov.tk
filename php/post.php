@@ -30,7 +30,7 @@
 	<!-- Cover Image -->
 	<?php
 		if($Post->coverImage()) {
-			echo '<href="'.$Post->permalink().'" class=""><img src="'.$Post->coverImage().'" alt="Cover Image">';
+			echo '<img class="image fit" src="'.$Post->coverImage().'" alt="Cover Image">';
 		}
 	?>
 
@@ -42,9 +42,6 @@
 
 		<!-- Post's tags -->
 		
-		<ul class="actions">
-		<h5><?php $Language->p('Tags') ?>:</h5>
-		</ul>
 		<ul class="stats">
 				<?php
 				$tags = $Post->tags(true);
