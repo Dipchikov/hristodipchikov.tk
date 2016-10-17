@@ -38,21 +38,20 @@
 	<?php echo $Post->content() ?>
 
 	<!-- Post's footer -->
-	<footer>
-
+	<!-- <footer>-->
 		<!-- Post's tags -->
 		
-		<ul class="stats">
-				<?php
+		<!--<ul class="stats">
+				<!--<?php
 				$tags = $Post->tags(true);
 
 			foreach($tags as $tagKey=>$tagName) {
 				echo '<li><a href="'.HTML_PATH_ROOT.$Url->filters('tag').'/'.$tagKey.'">'.$tagName.'</a></li>';
 			}
 		?>
-		</ul>
+		</ul>-->
 		
-	</footer>
+	<!-- </footer>-->
 
 	<!-- Plugins Post End -->
 	<?php Theme::plugins('postEnd') ?>
