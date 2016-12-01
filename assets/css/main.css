@@ -2130,7 +2130,7 @@
 		}
 
 			.image.left img, .image.right img {
-				width: 100%;
+				max-width: 40%;
 			}
 
 		.image.left {
